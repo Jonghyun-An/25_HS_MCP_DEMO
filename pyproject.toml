@@ -1,0 +1,10 @@
+[project]
+name = "25-mcp-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastmcp>=2.11.3",
+    "uvicorn>=0.35.0",
+]

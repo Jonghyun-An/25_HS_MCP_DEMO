@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "korean-weather-sse": {
+      "url": "http://localhost:8111/sse",
+      "description": "한국 날씨 정보를 제공하는 MCP 서버 (SSE 모드)",
+      "transport": "sse"
+    }
+  },
+  "startupCommands": [
+    {
+      "name": "start-weather-server",
+      "command": "python3",
+      "args": [
+        "/home/rudder/25_MCP_DEMO/weather.py",
+        "--transport",
+        "sse",
+        "--host",
+        "localhost",
+        "--port",
+        "8111"
+      ],
+      "description": "한국 날씨 SSE 서버를 백그라운드에서 시작",
+      "background": true
+    }
+  ]
+}

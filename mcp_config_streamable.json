@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "korean-weather-streamable-http": {
+      "url": "http://localhost:8111/mcp",
+      "description": "한국 날씨 정보를 제공하는 MCP 서버 (Streamable-HTTP 모드)",
+      "transport": "streamable-http"
+    }
+  },
+  "startupCommands": [
+    {
+      "name": "start-weather-server",
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "/home/rudder/25_MCP_DEMO",
+        "python",
+        "weather.py",
+        "--transport",
+        "streamable-http",
+        "--host",
+        "localhost",
+        "--port",
+        "8111"
+      ],
+      "description": "한국 날씨 Streamable-HTTP 서버를 백그라운드에서 시작",
+      "background": true
+    }
+  ]
+}

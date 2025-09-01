@@ -5,6 +5,33 @@
 ## 지원 도시
 - 서울, 부산, 대구, 인천, 광주, 대전, 울산, 수원, 고양, 용인
 
+## 예시 프롬프트
+
+```
+날씨를 조회하고 싶어 현재 도시들의 리스트를 받아서 랜덤으로 하나 선택해서 해당 도시의 날씨 확인해줘
+```
+
+## mcp.json
+
+```json
+"korean-weather-sse": {
+      "url": "http://localhost:8111/sse"
+    },
+    "korean-weather-stdio": {
+      "command": "/home/rudder/25_MCP_DEMO/run_stdio.sh",
+      "args": [],
+      "description": "한국 날씨 정보를 제공하는 MCP 서버 (UV 스크립트 + STDIO)",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    "korean-weather-streamable-http": {
+      "url": "http://localhost:8111/mcp",
+      "description": "한국 날씨 정보를 제공하는 MCP 서버 (Streamable-HTTP 모드)",
+      "transport": "streamable-http"
+    }
+```
+
 ## 지원 전송 모드
 
 ### 1. STDIO 모드 (기본값)

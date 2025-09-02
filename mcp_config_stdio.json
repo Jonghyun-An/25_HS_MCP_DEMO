@@ -1,14 +1,20 @@
 {
   "mcpServers": {
     "korean-weather-stdio": {
-      "command": "python3",
+      "command": "uv",
       "args": [
-        "/home/rudder/25_MCP_DEMO/weather.py",
+        "run",
+        "--project",
+        "/home/rudder/25_MCP_DEMO",
+        "python",
+        "weather.py",
         "--transport",
         "stdio"
       ],
       "description": "한국 날씨 정보를 제공하는 MCP 서버 (STDIO 모드)",
-      "env": {}
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
     }
   }
 }

@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "korean-weather-stdio": {
+      "command": "/home/rudder/25_MCP_DEMO/run_stdio.sh",
+      "args": [],
+      "description": "한국 날씨 정보를 제공하는 MCP 서버 (UV 스크립트 + STDIO)",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    "korean-weather-sse": {
+      "url": "http://localhost:8111/sse",
+      "description": "한국 날씨 정보를 제공하는 MCP 서버 (SSE 모드)",
+      "transport": "sse"
+    },
+    "korean-weather-streamable-http": {
+      "url": "http://localhost:8111/mcp",
+      "description": "한국 날씨 정보를 제공하는 MCP 서버 (Streamable-HTTP 모드)",
+      "transport": "streamable-http"
+    }
+  }
+}
+  

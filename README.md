@@ -68,23 +68,23 @@ uv run python weather.py --transport sse --host 0.0.0.0 --port 8111
 #### 접속 URL:
 - 서버: `http://localhost:8111/sse`
 
-### 3. Streamable 모드
-WebSocket 기반 통신 방식으로, 실시간 양방향 통신을 지원합니다.
+### 3. Streamable-HTTP 모드
+HTTP 기반 스트리밍 통신 방식으로, MCP 클라이언트와의 실시간 통신을 지원합니다.
 
 #### 실행 방법:
 ```bash
 # 직접 실행 (기본 포트: 8111)
 uv run python weather.py --transport streamable-http --host 0.0.0.0 --port 8111
 
-# 스크립트로 실행
-./run_streamable_fastmcp.sh localhost 8111
-# 또는 통합 스크립트 사용
+# 통합 스크립트 사용
 ./run.sh streamable-http localhost 8111
+
+# FastMCP CLI 사용 (권장)
 ./run.sh fastmcp localhost 8111
 ```
 
 #### 접속 URL:
-- 서버: `ws://localhost:8111/ws`
+- Streamable-HTTP: `http://localhost:8111/mcp`
 
 ## 사용 가능한 도구 (Tools)
 
@@ -131,25 +131,37 @@ uv run python weather.py --transport streamable-http --host 0.0.0.0 --port 8111
 
 각 전송 모드별로 MCP 클라이언트 설정 파일을 제공합니다:
 
-- `mcp_config_stdio.json`: STDIO 모드용 설정
+- `mcp_config_stdio.json`: STDIO 모드용 설정 (UV 직접 실행)
+- `mcp_config_stdio_bash.json`: STDIO 모드용 설정 (Bash 스크립트 실행)
 - `mcp_config_sse.json`: SSE 모드용 설정
 - `mcp_config_streamable.json`: Streamable 모드용 설정
 - `claude_desktop_config.json`: Claude Desktop 전용 설정
 
 ## 요구사항
 
+이 프로젝트는 UV 패키지 매니저를 사용합니다:
+
 ```bash
-pip install fastmcp uvicorn
+# UV 설치 (아직 설치하지 않았다면)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 의존성 자동 설치 (uv run 명령어 사용 시)
+# 또는 수동으로 의존성 설치
+uv sync
 ```
+
+**필요한 패키지:**
+- `fastmcp>=2.11.3` - MCP 서버 프레임워크
+- `uvicorn>=0.35.0` - ASGI 웹 서버
 
 ## 예제 사용법
 
 ```bash
 # 통합 스크립트 사용 (권장)
-./run.sh stdio                    # STDIO 모드
-./run.sh sse localhost 8111       # SSE 모드  
-./run.sh streamable-http 0.0.0.0 8111  # Streamable-HTTP 모드
-./run.sh fastmcp 127.0.0.1 8111   # FastMCP CLI 모드
+./run.sh stdio                         # STDIO 모드
+./run.sh sse localhost 8111           # SSE 모드  
+./run.sh streamable-http 0.0.0.0 8111 # Streamable-HTTP 모드
+./run.sh fastmcp 127.0.0.1 8111      # FastMCP CLI 모드
 
 # 직접 실행
 uv run python weather.py --transport stdio

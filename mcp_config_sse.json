@@ -9,9 +9,13 @@
   "startupCommands": [
     {
       "name": "start-weather-server",
-      "command": "python3",
+      "command": "uv",
       "args": [
-        "/home/rudder/25_MCP_DEMO/weather.py",
+        "run",
+        "--project",
+        "/home/rudder/25_MCP_DEMO",
+        "python",
+        "weather.py",
         "--transport",
         "sse",
         "--host",

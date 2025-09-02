@@ -73,18 +73,18 @@ HTTP 기반 스트리밍 통신 방식으로, MCP 클라이언트와의 실시�
 
 #### 실행 방법:
 ```bash
-# 직접 실행 (기본 포트: 8111)
-uv run python weather.py --transport streamable-http --host 0.0.0.0 --port 8111
+# 직접 실행 (기본 포트: 8112)
+uv run python weather.py --transport streamable-http --host 0.0.0.0 --port 8112
 
 # 통합 스크립트 사용
-./run.sh streamable-http localhost 8111
+./run.sh streamable-http localhost 8112
 
 # FastMCP CLI 사용 (권장)
-./run.sh fastmcp localhost 8111
+./run.sh fastmcp localhost 8112
 ```
 
 #### 접속 URL:
-- Streamable-HTTP: `http://localhost:8111/mcp`
+- Streamable-HTTP: `http://localhost:8112/mcp`
 
 ## 사용 가능한 도구 (Tools)
 
@@ -160,13 +160,13 @@ uv sync
 # 통합 스크립트 사용 (권장)
 ./run.sh stdio                         # STDIO 모드
 ./run.sh sse localhost 8111           # SSE 모드  
-./run.sh streamable-http 0.0.0.0 8111 # Streamable-HTTP 모드
+./run.sh streamable-http 0.0.0.0 8112 # Streamable-HTTP 모드
 ./run.sh fastmcp 127.0.0.1 8111      # FastMCP CLI 모드
 
 # 직접 실행
 uv run python weather.py --transport stdio
 uv run python weather.py --transport sse --port 8111  
-uv run python weather.py --transport streamable-http --port 8111
+uv run python weather.py --transport streamable-http --port 8112
 ```
 
 ## 디버깅 및 로그

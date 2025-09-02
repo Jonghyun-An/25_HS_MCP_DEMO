@@ -30,7 +30,7 @@ case $TRANSPORT in
         echo "예시:"
         echo "  $0 stdio                    # STDIO 모드"
         echo "  $0 sse localhost 8111       # SSE 모드"
-        echo "  $0 streamable-http 0.0.0.0 8111  # Streamable-HTTP 모드"
+        echo "  $0 streamable-http 0.0.0.0 8112  # Streamable-HTTP 모드"
         echo "  $0 fastmcp 127.0.0.1 8111   # FastMCP CLI 모드"
         exit 1
         ;;

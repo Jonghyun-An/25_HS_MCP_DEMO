@@ -14,7 +14,7 @@
       "transport": "sse"
     },
     "korean-weather-streamable-http": {
-      "url": "http://localhost:8111/mcp",
+      "url": "http://localhost:8112/mcp",
       "description": "한국 날씨 정보를 제공하는 MCP 서버 (Streamable-HTTP 모드)",
       "transport": "streamable-http"
     }
